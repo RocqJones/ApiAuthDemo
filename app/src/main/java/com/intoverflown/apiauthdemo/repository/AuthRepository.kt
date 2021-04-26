@@ -8,5 +8,4 @@ class AuthRepository(private val api : ApiInterface) : BaseRepository() {
     suspend fun login(username: String, password : String) = safeApiCall {
         api.login(username, password)
     }
-
 }
