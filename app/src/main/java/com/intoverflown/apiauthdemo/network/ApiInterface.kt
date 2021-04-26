@@ -7,5 +7,5 @@ import retrofit2.http.POST
 interface ApiInterface {
 
     @POST("Service/POS/API/v1/Connect/Login")
-    suspend fun login() : Response<LoginResponse>
+    suspend fun login(username: String, password: String): Response<LoginResponse>
 }
