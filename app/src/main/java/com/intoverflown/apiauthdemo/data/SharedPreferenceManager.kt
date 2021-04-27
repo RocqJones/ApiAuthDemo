@@ -41,17 +41,17 @@ class SharedPreferenceManager(context: Context) {
         editor.apply()
     }
 
-    /** This method will checker whether user is already logged in or not */
+    /** This method will check whether user is already logged in or not */
     fun isLoggedIn(): Boolean {
-        val sharedPreferences = ctx!!.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-        return sharedPreferences.getString(KEY_USERNAME, null) != null
+        val sharedPreferences = ctx?.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        return sharedPreferences?.getString(KEY_TOKEN, null) != null
     }
 
     /** This method will serve the logged in user  */
     fun getUser(): LoginResponse {
         val sharedPreferences = ctx!!.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         return LoginResponse(
-            sharedPreferences.getString(KEY_ID, "1aadb13d-5252-47d6-a157-10e8892dbb57")!!,
+            sharedPreferences.getString(KEY_ID, null)!!,
             sharedPreferences.getString(KEY_USERNAME, null)!!,
             sharedPreferences.getString(KEY_TOKEN, null)!!,
             sharedPreferences.getString(KEY_FIRSTNAME, null)!!,
