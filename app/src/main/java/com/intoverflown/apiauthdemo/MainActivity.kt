@@ -17,16 +17,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
 
-        if (SharedPreferenceManager.getInstance(this).isLoggedIn()) {
-            val loginResponse: LoginResponse = SharedPreferenceManager.getInstance(this).getUser()
-
-            binding!!.userName.text = loginResponse.Username
-        } else {
-            val i = Intent(this, LoginActivity::class.java)
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(i)
-            finish()
-        }
+//        if (SharedPreferenceManager.getInstance(this).isLoggedIn()) {
+//            val loginResponse: LoginResponse = SharedPreferenceManager.getInstance(this).getUser()
+//
+//            binding!!.userName.text = loginResponse.Username
+//        } else {
+//            val i = Intent(this, LoginActivity::class.java)
+//            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//            startActivity(i)
+//            finish()
+//        }
 
         binding!!.logOutBtn.setOnClickListener {
             SharedPreferenceManager.getInstance(applicationContext).logout()
